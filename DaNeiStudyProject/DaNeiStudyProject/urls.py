@@ -14,10 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from .views import run_views
+from django.urls import path, include
+from django.conf.urls import url
+from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('runviews/', run_views),
+    url(r'^Auto/', include('Auto.urls'), name="交给Auto应用去处理，转交给Auto的urls"),
+]
+urlpatterns += [
+    url(r'^phpwind/', login_php),
+    url(r'^phpwind1/', login_php1),
+    url(r'^loader/', loader_tem),
+    url(r'^render/', render_tem),
 ]
