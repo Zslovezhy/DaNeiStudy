@@ -17,13 +17,57 @@
     <h1>
         显示各种类型的变量
     </h1>
+    {% comment "注释" %}
+        <p>这是注释标签的内容</p>
+    {% endcomment %}
+    <h3>
     <br />num:{{ num }}
-    <br />str:{{ str }}
+    <br />str:{{ str|truncatechars:6 }}
     <br />tup:{{ tup }}
-    <br />list:{{ list }}
+    <br />list:{{ lst }}
+    <br />list.1:{{ lst.1|upper }}
     <br />dic:{{ dic }}
-    <br />fun:{{ fun }}
+    <br />dic.1A:{{ dic.1A }}
+    <br />fun:{{ f }}
     <br />dog.name:{{ dog.name }}
-    <br />dog.eat:{{ dog.eat }}
+    <br />dog.eat:{{ dog.eat }}</h3>
+    <!-- 模板中的for标签，循环遍历lst变量 -->
+    <br />
+        {% for i in lst %}
+            <p
+                    {% if forloop.first %}
+                        style="background-color:red;"
+                    {% elif forloop.last %}
+                        style="background-color:blue;"
+                    {% else %}
+                        style="background-color:green;"
+                    {% endif %}
+            >
+                {{ forloop.counter }}:{{ i }}
+            </p>
+        {% endfor %}
+    <!-- 模板中的if标签 -->
+    <br />
+        {% if lst %}
+            <p>{{ lst.1 }}:{{ lst }}</p>
+        {% else %}
+            <p>lst不存在</p>
+        {% endif %}
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

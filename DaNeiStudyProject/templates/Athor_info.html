@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Athor_info</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <p>
+            姓名：
+            <input type="text" name="uname" value="{{ author_info.name }}">
+        </p>
+        <p>
+            年龄：
+            <input type="text" name="uage" value="{{ author_info.age }}">
+        </p>
+        <p>
+            email：
+            <input type="email" name="uemail" value="{{ author_info.email }}">
+        </p>
+        <p>
+            isActive：
+            <input type="text" name="ustatus" value="{{ author_info.isActive }}">
+        </p>
+        <p>
+            <input type="submit" value="修改" >
+        </p>
+    </form>
+</body>
+</html>

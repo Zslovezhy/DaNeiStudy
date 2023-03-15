@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Athors</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>邮箱</td>
+            <td>状态</td>
+            <td>操作</td>
+        </tr>
+        {% for au in authors %}
+            <tr>
+                <td>{{ au.name }}</td>
+                <td>{{ au.age }}</td>
+                <td>{{ au.email }}</td>
+                <td>{{ au.isActive }}</td>
+                <td>
+                    <!-- 两种方法实现链接跳转 -->
+                    <a href="{% url 'del_author' au.id %}">删除</a>
+                    <a href="{% url 'changeIsActive' au.id %}">删除(changeIsActive)</a>
+                    <a href="/web/athor_info/{{ au.id }}/">修改</a>
+<!--                    <a href="{% url 'author_info' au.id %}">修改</a>-->
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

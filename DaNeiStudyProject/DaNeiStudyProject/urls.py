@@ -21,10 +21,13 @@ from .views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^Auto/', include('Auto.urls'), name="交给Auto应用去处理，转交给Auto的urls"),
+    url(r'^index/', include('index.urls'), name="交给index应用去处理，转交给index的urls"),
+    url(r'^web/', include('web.urls'), name="交给web应用去处理，转交给web的urls"),
 ]
 urlpatterns += [
     url(r'^phpwind/', login_php),
     url(r'^phpwind1/', login_php1),
     url(r'^loader/', loader_tem),
     url(r'^render/', render_tem),
+    url(r'01_static/', static_views),
 ]

@@ -45,6 +45,10 @@ def loader_tem(request):
     t = loader.get_template("../templates/send_var.html")
     return HttpResponse(t.render(dic))   #渲染成字符串时需要传递变量字典到模板中
 
+def static_views(request):
+    return render(request, "../templates/01_static.html")
+
+#将各种类型的变量传到模板中
 def render_tem(request):
     dic = {
         '1A': 'a',
@@ -53,16 +57,20 @@ def render_tem(request):
     }
     lst = ['a', 'b', 'c']
     tup = ('A', 'B', 'C')
-    vars = {
-        'num': 15,
-        'str': '模板中的字符串变量',
-        'tup': tup,
-        'list': lst,
-        'dic': dic,
-        'fun': fun(1,2),
-        'dog': Dog()
-    }
-    return render(request, '../templates/send_var.html', vars)
+    str = '模板中的字符串变量'
+    f = fun(52, 36)
+    dog = Dog()
+    locals() #locals() 函数会以字典类型返回当前位置的全部局部变量。
+    # vars = {
+    #     'num': 15,
+    #     'str': '模板中的字符串变量',
+    #     'tup': tup,
+    #     'list': lst,
+    #     'dic': dic,
+    #     'fun': fun(1,2),
+    #     'dog': Dog()
+    # }
+    return render(request, '../templates/send_var.html', locals())
 
 def fun(num1, num2):
     return num1 + num2
