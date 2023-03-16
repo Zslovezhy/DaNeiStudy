@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>正向查询（通过book查找author）</h1>
+  <h2>Book 信息：</h2>
+  <h3>书籍名称：{{ book.title }}</h3>
+  <h3>出版日期：{{ book.publicate_date }}</h3>
+  <h2>Author 信息：</h2>
+  {% for author in authors %}
+  <h3>作者名：{{ author.name }}</h3>
+  <h3>年龄：{{ author.age }}</h3>
+  <h3>email：{{ author.email }}</h3>
+  {% endfor %}
+  <h2>==========================================================================</h2>
+  <h1>反向查询（通过author查找book）</h1>
+  <h2>Author 信息：</h2>
+  <h3>作者名：{{ author.name }}</h3>
+  <h3>年龄：{{ author.age }}</h3>
+  <h3>email：{{ author.email }}</h3>
+  <h2>Book 信息：</h2>
+  {% for book in books %}
+  <h3>书籍名称：{{ book.title }}</h3>
+  <h3>出版日期：{{ book.publicate_date }}</h3>
+  {% endfor %}
+</body>
+</html>

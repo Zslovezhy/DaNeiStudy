@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>正向查询（通过author查找publisher）</h1>
+    <h2>Author 信息：</h2>
+    <h3>作者名：{{ author.name }}</h3>
+    <h3>年龄：{{ author.age }}</h3>
+    <h3>email：{{ author.email }}</h3>
+    <h2>Publisher 信息：</h2>
+    {% for publisher in publishers %}
+        <h3>出版社名称：{{ publisher.name }}</h3>
+        <h3>地址：{{ publisher.address }}</h3>
+        <h3>城市：{{ publisher.city }}</h3>
+        <h3>
+            网址：<a href="{{ publisher.website }}">{{ publisher.website }}</a>
+        </h3>
+    {% endfor %}
+    <h2>=============================================================================================</h2>
+    <h1>反向查询（通过publisher查找author）</h1>
+    <h2>Publisher 信息：</h2>
+    <h3>出版社名称：{{ publisher.name }}</h3>
+    <h3>地址：{{ publisher.address }}</h3>
+    <h3>城市：{{ publisher.city }}</h3>
+    <h3>
+        网址：<a href="{{ publisher.website }}">{{ publisher.website }}</a>
+    </h3>
+    <h2>Author 信息：</h2>
+    {% for author in authors %}
+        <h3>作者名：{{ author.name }}</h3>
+        <h3>年龄：{{ author.age }}</h3>
+        <h3>email：{{ author.email }}</h3>
+    {% endfor %}
+</body>
+</html>

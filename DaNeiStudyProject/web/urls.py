@@ -31,3 +31,13 @@ urlpatterns = [
     url(r'del_author_changeIsActive/(\d+)/', del_author_changeIsActive, name='changeIsActive'),
     url(r'update_age/', update_age, name='update_age'),
 ]
+urlpatterns += [
+    url(r'findAuthorByWife/', findAuthorByWife, name='findAuthorByWife'),
+    url(r'findWifeByAuthor/', findWifeByAuthor, name='findWifeByAuthor'),
+    url(r'findPublisherByBook/', findPublisherByBook, name='findPublisherByBook'),
+    url(r'findBookByPublisher/', findBookByPublisher, name='findBookByPublisher'),
+    url(r'findAuthorByBook/', findAuthorByBook, name='findAuthorByBook'),
+    url(r'findBookByAuthor/', findBookByAuthor, name='findBookByAuthor'),
+    url(r'findPublisherByAuthor/', findPublisherByAuthor, name='findPublisherByAuthor'),
+    url(r'findAuthorByPublisher/', findAuthorByPublisher, name='findAuthorByPublisher'),
+]

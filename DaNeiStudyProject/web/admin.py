@@ -18,7 +18,7 @@ class AuthorAdmin(admin.ModelAdmin):
         #分组2---email
         (
             '邮箱',{
-                'fields': ('email', 'isActive'),
+                'fields': ('email', 'isActive', 'publisher'),
                 'classes': ('collapse', '')
             }
         ),
@@ -32,10 +32,35 @@ class BookAdmin(admin.ModelAdmin):
     list_editable = ['publicate_date']
     list_filter = ['publicate_date']
 
+class PublisherAdmin(admin.ModelAdmin):
+    list_display = ['name', 'address', 'city']
+    search_fields = ['name', 'address', 'city']
+    list_editable = ['address', 'city']
+    list_filter = ['country', 'city']
+    fieldsets = (
+        (
+            '基本选项', {
+                'fields': ('name', 'address', 'city'),
+            }
+        ),
+        (
+            '高级选项', {
+                'fields': ('country', 'website'),
+                'classes': ('collapse', '')
+            }
+        )
+    )
+
+class AuthorsWifeAdmin(admin.ModelAdmin):
+    list_display = ['name', 'age']
+    list_editable = ['age']
+
+
 
 
 # Register your models here.
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Book, BookAdmin)
-admin.site.register(Publisher)
+admin.site.register(Publisher, PublisherAdmin)
+admin.site.register(AuthorsWife, AuthorsWifeAdmin)
 

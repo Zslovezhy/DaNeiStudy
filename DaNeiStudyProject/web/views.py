@@ -106,16 +106,45 @@ def update_age(request):
     Author.objects.filter(Q(age__lt=40)|Q(age__gt=75)).update(age=F('age')+5)
     return HttpResponse("更新年龄成功")
 
+def findAuthorByWife(request):
+    wife = AuthorsWife.objects.get(id=1)
+    author = wife.author
+    return render(request, 'Author_Wife.html', locals())
 
+def findWifeByAuthor(request):
+    author = Author.objects.get(id=13)
+    wife = author.authorswife
+    return render(request, 'Author_Wife.html', locals())
 
+def findPublisherByBook(request):
+    book = Book.objects.get(id=2)
+    publisher = book.publisher
+    return render(request, 'Book_Publisher.html', locals())
 
+def findBookByPublisher(request):
+    publisher = Publisher.objects.get(id=4)
+    books = publisher.book_set.all()
+    return render(request, 'Book_Publisher.html', locals())
 
+def findAuthorByBook(request):
+    book = Book.objects.get(id=1)
+    authors = book.author.all()
+    return render(request, 'Book_Author.html', locals())
 
+def findBookByAuthor(request):
+    author = Author.objects.get(id=4)
+    books = author.book_set.all()
+    return render(request, 'Book_Author.html', locals())
 
+def findPublisherByAuthor(request):
+    author = Author.objects.get(id=3)
+    publishers = author.publisher.all()
+    return render(request, 'Publisher_Author.html', locals())
 
-
-
-
+def findAuthorByPublisher(request):
+    publisher = Publisher.objects.get(name='北京出版社')
+    authors = publisher.author_set.all()
+    return render(request, 'Publisher_Author.html', locals())
 
 
 
