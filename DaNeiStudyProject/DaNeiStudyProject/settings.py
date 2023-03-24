@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Auto',
     'index',
     'web',
+    'HTTPReauestApp',
 ]
 
 MIDDLEWARE = [

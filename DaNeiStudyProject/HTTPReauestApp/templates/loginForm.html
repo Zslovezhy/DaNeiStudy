@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>{{ errMsg }}</p>
+    <form action="/HTTPReauestApp/loginForms/" method="post">
+        {% csrf_token %}
+        {% for field in forms %}
+            <p>
+                {{ field.label }}:{{ field }}
+            </p>
+        {% endfor %}
+        <input type="submit" value="注册">
+    </form>
+</body>
+</html>

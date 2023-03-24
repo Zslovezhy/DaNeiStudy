@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {{ warnMsg }}
+    <form action="/HTTPReauestApp/registerForms/" method="post">
+        {% csrf_token %}
+        {% for field in forms %}
+            <p>
+                {{ field.label }}:{{ field }}
+            </p>
+        {% endfor %}
+        <input type="submit" value="注册">
+        <input type="submit" value="去登录" onclick="location.href='/HTTPReauestApp/loginForms/'">
+    </form>
+</body>
+</html>
