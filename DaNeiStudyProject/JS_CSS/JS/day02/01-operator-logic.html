@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!--	<script>-->
+<!--		var year = prompt("请输入一个年份:");-->
+<!--		var isRun = (year%4==0&&year%100!=0)||(year%400==0);-->
+<!--		console.log(year+"年是闰年码?"+isRun);-->
+<!--	</script>-->
+
+	<script>
+		//假如:输入的是数字 a
+		var input = prompt("请输入一个字符:");
+		//判断是否为数字
+		var isDig=input >= '0' && input <= '9';
+		console.log("是数字吗?"+isDig);
+		//判断是否为英文
+		//判断是否为大写英文
+		var isCap=input>='A'&&input<='Z';
+		//判断是否为小写英文
+		var isSml=input>='a'&&input<='z';
+		var isENG=isCap||isSml;
+		console.log("是英文吗?"+isENG);
+		//判断是否为中文
+		var isCHN=input>="\u4e00"&&input<="\u9fa5";
+		console.log("是中文吗?"+isCHN);
+	</script>
+</body>
+</html>

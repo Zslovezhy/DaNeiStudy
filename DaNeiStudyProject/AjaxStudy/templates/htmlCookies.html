@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+</head>
+<body>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script>
+        $(function(){
+            var uname = $.cookie('uname');
+            console.log(JSON.parse(uname));
+        });
+    </script>
+</body>
+</html>

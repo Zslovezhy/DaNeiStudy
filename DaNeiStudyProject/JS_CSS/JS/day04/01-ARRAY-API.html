@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    /**
+     *将指定数字转换为二进制
+     *使用reverse()反转
+     *使用join()拼接
+     */
+    function decode2Bin(){
+        var num = Number(prompt("请输入数字："));
+        //声明一个数字，保存每次num%2的结果
+        var arr = [];
+        do{
+            //1.将num%2的结果保存进arr中
+            arr[arr.length] = num % 2;
+            //2.将num/2转换为整数，再赋值给num
+            num = parseInt(num/2);
+        }while(num != 0);
+        //将arr进行反转
+        arr.reverse();
+        //将arr使用""拼接
+        var ret = arr.join('');
+        console.log("二进制为"+ret)
+    }
+    function sortArr(){
+        var arr = [121,35,1185,62,3558,2219];
+        //arr.sort(sortAsc);
+        //使用匿名函数完成排序
+        arr.sort( function(a,b){
+            return a - b;
+        } )
+        console.log(arr);
+    }
+    /*指定升序的排序函数*/
+    function sortAsc(a,b){
+        return a-b;
+    }
+    var arrGlobal = [988,56,78,1,685,23];
+    function sortDeAsc(a,b){
+        return b-a;
+    }
+    function AscSort(){
+        arrGlobal.sort(sortAsc);
+        console.log(arrGlobal);
+    }
+    function DeAscSort(){
+        arrGlobal.sort(sortDeAsc);
+        console.log(arrGlobal);
+    }
+    function stackOper(){
+        var arr = ["元素1","元素2","元素3","元素4"];
+        var len = arr.push("新增元素");
+        console.log("新数组："+arr);
+        console.log("新数组长度："+len);
+    }
+    function stackDel(){
+        var arr = ["元素1","元素2","元素3","元素4","要删除的元素"];
+        var ele = arr.pop();
+        console.log("新数组："+arr);
+        console.log("删除的元素："+ele);
+    }
+    function stackOperHead(){
+        var arr = ["元素1","元素2","元素3","元素4"];
+        var len = arr.unshift("头部新增元素");
+        console.log("新数组："+arr);
+        console.log("新数组长度："+len);
+    }
+    function stackDelHead(){
+        var arr = ["要删除的头部元素","元素1","元素2","元素3","元素4"];
+        var ele = arr.shift();
+        console.log("新数组："+arr);
+        console.log("删除的元素："+ele);
+    }
+  </script>
+  <button onclick="decode2Bin()">转换为二进制</button>
+  <button onclick="sortArr()">数组排序</button><br>
+  <button onclick="AscSort()">数组升序排序</button>
+  <button onclick="DeAscSort()">数组降序排序</button>
+  <br>
+  <button onclick="stackOper()">栈新增元素</button>
+  <br>
+  <button onclick="stackDel()">栈删除元素</button>
+  <br>
+  <button onclick="stackOperHead()">栈头部新增元素</button>
+  <br>
+  <button onclick="stackDelHead()">栈头部删除元素</button>
+</body>
+</html>

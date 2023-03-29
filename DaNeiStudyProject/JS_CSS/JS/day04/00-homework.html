@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    function home1(){
+      var arr1 = ["漩涡鸣人","卡卡西","小樱","卡卡西"];
+      var indexArr = [];    //存放找到的信息的下标
+      var input = prompt('请输入用户名');
+      //循环遍历arr1,查找input是否出现在arr1中
+      for(var i=0;i<arr1.length;i++){
+        if (arr1[i] == input){
+            indexArr[indexArr.length]=i;
+        }
+      }
+      //判断indexArr的长度，如果长度>0，则input存在至少一次
+      if(indexArr.length > 0){
+        console.log('出现的下标为：'+indexArr);
+      }else{
+        console.log('不存在');
+      }
+    }
+    function sortArr(){
+        var arr = [786,321,56];
+        console.log("排序前的数组：" + arr)
+        //1.比较第一个数字和第二个数字
+        if (arr[0] > arr[1]){
+            arr[0] ^= arr[1];
+            arr[1] ^= arr[0];
+            arr[0] ^= arr[1];
+        }
+        //2.比较第二个数字和第三个数字
+        if (arr[1] > arr[2]){
+            arr[1] ^= arr[2];
+            arr[2] ^= arr[1];
+            arr[1] ^= arr[2];
+        }
+        //3.比较第一个数字和第二个数字
+        if (arr[0] > arr[1]){
+            arr[0] ^= arr[1];
+            arr[1] ^= arr[0];
+            arr[0] ^= arr[1];
+        }
+        console.log("排序后的数组：" + arr)
+    }
+    function ArrToString(){
+        var arr = ['三国演义','水浒传','西游记'];
+        console.log(arr.toString());
+        console.log(arr.join("&&"));
+        console.log(arr.reverse());
+    }
+  </script>
+  <button onclick="home1()">数组查找</button>
+  <button onclick="sortArr()">数组排序</button>
+  <button onclick="ArrToString()">数组转字符串</button>
+</body>
+</html>

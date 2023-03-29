@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		/**
+		 * 创建数组
+		 */
+		function createArray(){
+			var arr1 = ["漩涡鸣人","卡卡西","小樱"];
+			var arr2 = new Array("君麻吕","大蛇丸","纲手");
+			//打印以上两个数组的值到控制台中
+			// console.log("数组1:"+arr1);
+			// console.log(arr2);
+
+			//为 arr1 数组中的第10个元素赋值
+			arr1[9] = "李洛克";
+			console.log(arr1);
+			//获取 arr1 中的第8个元素,并打印
+			console.log(arr1[7]);
+			//获取 arr1 中的第20个元素,并打印
+			console.log(arr1[19]);
+		}
+
+	</script>
+	<button onclick="createArray()">创建数组</button>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <script>
+		var year = prompt("输入年份:");
+		var isRun=year%4==0&&year%100!=0||year%400==0;
+		// isRun ? console.log(year+'是闰年') : console.log(year+"不是闰年");
+
+		var days = isRun?366:365;
+		console.log(days);
+
+	</script> -->
+
+	<script>
+		var height = prompt("请输入身高(m):");
+		var weight = prompt("请输入体重(kg):");
+		var bmi = weight / (height * height);
+		console.log("您的指数为:"+bmi);
+
+		bmi < 18.5 ? console.log("您偏瘦") :
+			bmi > 23.9 ? console.log("您偏胖") :
+				console.log("完美身材!");
+	</script>
+</body>
+</html>

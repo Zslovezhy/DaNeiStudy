@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^index/', include('index.urls'), name="交给index应用去处理，转交给index的urls"),
     url(r'^web/', include('web.urls'), name="交给web应用去处理，转交给web的urls"),
     url(r'^HTTPReauestApp/', include('HTTPReauestApp.urls'), name="交给HTTPReauestApp应用去处理，转交给HTTPReauestApp的urls"),
+    url(r'^AjaxStudy/', include('AjaxStudy.urls'), name="交给Ajax_Study应用去处理，转交给Ajax_Study的urls"),
 ]
 urlpatterns += [
     url(r'^phpwind/', login_php),

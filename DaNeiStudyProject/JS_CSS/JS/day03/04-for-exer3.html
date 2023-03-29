@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//要打印的总行数
+		var line = 5;
+		for(var i=1;i<=line;i++){
+			//i 则表示当前行
+			var msg = "";
+			//将 空格 和 星星 追加到 msg 的后面
+			//控制空格的循环
+			for(var j=1;j<=line-i;j++){
+				msg += " ";
+			}
+			//控制星星的循环
+			for(var k=1;k<=i*2-1;k++){
+				//msg += "*";
+				if(k==1 || k==i*2-1){
+					msg +="*";
+				}else{
+					msg += " ";
+				}
+			}
+			console.log(msg);
+		}
+	</script>
+</body>
+</html>

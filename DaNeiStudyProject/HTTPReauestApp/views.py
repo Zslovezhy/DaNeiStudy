@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from .forms import *
 from .models import *
@@ -117,12 +117,40 @@ def widget(request):
     form = WidgetForm()
     return render(request, 'widget.html', locals())
 
+def cookies(request):
+    resp = HttpResponse('添加cookie成功')
+    resp.set_cookie('uid', '1001', expires=60*60*21*366)
+    return resp
 
+def cookies_template(request):
+    resp = render(request, 'cookies_template.html', locals())
+    resp.set_cookie('uid', '1002', expires=60 * 60 * 21 * 366)
+    return resp
 
+def cookies_redirect(request):
+    resp = HttpResponseRedirect('/HTTPReauestApp/login_form/')
+    resp.set_cookie('uid', '1003', expires=60 * 60 * 21 * 366)
+    return resp
 
-
-
-
+def cookies_login(request):
+    if request.method == 'GET':
+        forms = WidgetForm()
+        return render(request, 'cookies_login.html', locals())
+    else:
+        uname = request.POST['uname']
+        upwd = request.POST['upwd']
+        uList = Users.objects.filter(uname=uname, upwd=upwd)
+        if uList:
+            resp = render(request, 'cookies_login_sussedd.html')
+            if 'isSaved' in request.POST:
+                uid = uList[0].id
+                expires = 60*60*24*366
+                resp.set_cookie('uid',uid, expires)
+                resp.set_cookie('uname', uname, expires)
+                return resp
+        else:
+            forms = WidgetForm()
+            return render(request, 'UsersRegisterFormModel.html', locals())
 
 
 

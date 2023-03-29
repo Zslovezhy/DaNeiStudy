@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var str1 = " ScaleFlux ";
+        console.log(str1.length);
+        console.log(str1.toUpperCase());
+        console.log(str1.toLowerCase());
+        function verifyCode(){
+            //1.创建数组
+            var arr = ['a','b','c','D','e','F','g',1,2,3,4,5,6,7,8,0];
+            //2.生成思维验证码
+            var code = "";
+            for (var i=0;i<4;i++){
+                var ele = parseInt(Math.random() * arr.length);
+                code += arr[ele];
+            }
+            //alert(code);
+            //3.将随机生成的验证码字符串通过prompt()展示给用户
+            var input = prompt("请输入四位验证码：" + code);
+            //4.比较用户输入的字符与生成的验证码是否一致并给出提示(忽略大小写)
+            if (input.toUpperCase() == code.toUpperCase()){
+                alert("验证通过！");
+            }else{
+                alert("验证失败！");
+            }
+        }
+        //alert(str1.trim());
+        //console.log(str1.trim().length);
+        console.log(str1.charAt(2));
+        console.log(str1.charCodeAt(2));
+        console.log(str1.indexOf("a",1));
+        console.log(str1.lastIndexOf("a",1));
+        function checkEmail(){
+            var email = prompt("请输入邮箱：");
+            var atIndex = email.indexOf("@");
+            var dotIndex = email.lastIndexOf(".");
+            if (atIndex >= 0 && dotIndex > atIndex ){
+                alert("邮箱格式正确");
+            }else{
+                alert("请输入正确的邮箱格式");
+            }
+        }
+        console.log(str1.substring(1,8));
+        function testSubString(){
+            var email = prompt("请输入邮箱：");
+            var ID = prompt("请输入身份证号：");
+            var atIndex = email.lastIndexOf("@");
+            var dotIndex = email.lastIndexOf(".");
+            var uname = email.substring(0,atIndex);
+            var server = email.substring(atIndex+1,dotIndex);
+            var birthdayYear = ID.substring(6,10);
+            var birthdayMonth = ID.substring(11,12);
+            var birthdayDay = ID.substring(13,14);
+            alert("用户名：" + uname);
+            alert("服务商：" + server);
+            alert("生日：" + birthdayYear + "年" + birthdayMonth + "月" + birthdayDay + "日");
+        }
+        function testSplit(){
+            var str = "1001_5&1002_4&1053_1";
+            var ele = str.split("&");
+            for (var i=0;i<ele.length;i++){
+                var good = ele[i];
+                var goodId = good.split("_")[0];
+                var goodCount = good.split("_")[1];
+                console.log("商品ID："+goodId);
+                console.log("商品数量："+goodCount);
+            }
+        }
+        function testReplace(){
+            var str = "我是你大爷，你大爷是你爸爸！！！";
+            var reg = /你大爷/g;
+            var newstr = str.replace(reg,"***");
+            var ndy = str.match(reg);
+            console.log(newstr);
+            console.log(ndy);
+            console.log(ndy.length);
+            var str2 = "Microsoft is a big company,microsoft's color is red and has MICROSOFT logo like Microsoft";
+            var reg2 = /microsoft/ig;
+            var newstr2 = str2.replace(reg2,"微软");
+            var ndy2 = str2.match(reg2);
+            console.log(newstr2);
+            console.log(ndy2.length);
+        }
+        var date = new Date();
+        //console.log(date);
+        //var year = date.getFullYear();
+        //console.log(year);
+       // console.log(date.toLocaleString());
+        function change(i){
+            //如果传入的小于10，则前面加一个0
+            if (i<10){
+                return "0" + i;
+            }
+            return i;
+        }
+        function getTime(){
+            var now = new Date();
+
+            var year = now.getFullYear();
+            var month = change((now.getMonth()+1));
+            var date = change(now.getDate());
+            var day = now.getDay();
+            var dayArr = ["日","一","二","三","四","五","六",];
+            var h = change(now.getHours());
+            var minute = change(now.getMinutes());
+            var seconds = change(now.getSeconds());
+            alert(year+"年"+month+"月"+date+"日 "+h+"时"+minute+"分"+seconds+"秒  星期"+dayArr[day]);
+        }
+    </script>
+    <button onclick="verifyCode()">四位验证码</button>
+    <br>
+    <button onclick="checkEmail()">邮箱证码</button>
+    <br>
+    <button onclick="testSubString()">字符串提取</button>
+    <br>
+    <button onclick="testSplit()">字符串分割</button>
+    <br>
+    <button onclick="testReplace()">字符串替换</button>
+    <br>
+    <button onclick="getTime()">获取时间</button>
+</body>
+</html>

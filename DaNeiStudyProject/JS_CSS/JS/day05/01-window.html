@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function testConfirm(){
+            var ret = confirm("确认删除么？");
+            console.log(ret);
+        }
+        function testClose(){
+            var ret = confirm("确认关闭网页？");
+            if (ret == true){
+                window.close();
+            }
+        }
+        function wait5stestClose(){
+            var ret = confirm("确认关闭网页？");
+            if (ret == true){
+                setTimeout(function(){
+                    window.close();
+                },5000);
+            }
+        }
+        function getScreen(){
+            console.log(window.screen.width);
+            console.log(window.screen.height);
+            console.log(window.screen.availWidth);
+            console.log(window.screen.availHeight);
+            console.log(window.history.length);
+            console.log(window.location);
+            console.log(window.location.href);
+            //console.log(window.location.reload());
+            console.log(window.navigator.userAgent);
+        }
+    </script>
+    <button onclick="testConfirm()">确认删除</button>
+    <br>
+    <button onclick="testClose()">关闭</button>
+    <br>
+    <button onclick="wait5stestClose()">定时关闭</button>
+    <br>
+    <button onclick="getScreen()">获取分辨率</button>
+</body>
+</html>

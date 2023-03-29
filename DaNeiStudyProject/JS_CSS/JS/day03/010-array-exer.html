@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function exer1(){
+			//声明一个空数组,用于保存用户输入的数据
+			var arr = [];
+			//循环录入数据,如果不是exit的话则保存进数组
+			do{
+				//输入数据并保存在 input 变量中
+				var input = prompt('Input:');
+				if(input != "exit"){
+					arr[arr.length]=input;
+				}
+			}while(input != "exit");
+			//打印输出数组中的内容
+			console.log(arr);
+		}
+
+		function exer2(){
+			var names = ["王宝强","陈羽凡","贾乃亮","马蓉","白百何","李小璐"];
+			var input = prompt('请输入姓名:');
+			//循环遍历names数组中的每个元素,与input判断是否相等,相等的话则可以记录下标
+			for(var i=0;i<names.length;i++){
+				if(names[i] == input){
+					console.log("下标为:"+i);
+					break;
+				}
+			}
+			if(i == names.length){
+				console.log("您输入的元素不存在!");
+			}
+
+		}
+
+		function exer3(){
+			var names = ["王宝强","陈羽凡","贾乃亮","马蓉","白百何","李小璐"];
+			var input = prompt('请输入姓名:');
+			//判断input是否存在于names,默认为false,表示不存在
+			var flag = false;
+			for(var i=0;i<names.length;i++){
+				if(names[i] == input){
+					flag = true;
+					break;
+				}
+			}
+			if(flag){
+				console.log("存在!下标忘记录了!");
+			}else{
+				console.log("输入的数据不存在!");
+			}
+		}
+
+		function exer4(){
+			var names = ["王宝强","陈羽凡","贾乃亮","马蓉","白百何","李小璐"];
+			var input = prompt('请输入姓名:');
+			//用于记录查找出来的input的下标,默认为-1,表示不存在
+			var index = -1;
+			for(var i=0;i<names.length;i++){
+				if(names[i] == input){
+					index = i;
+					break;
+				}
+			}
+			if(index == -1){
+				console.log("您输入的数据不存在");
+			}else{
+				console.log("下标为:"+index);
+			}
+		}
+	</script>
+	<button onclick="exer1()">练习1</button>
+	<button onclick="exer2()">练习2</button>
+	<button onclick="exer3()">练习3</button>
+	<button onclick="exer4()">练习4</button>
+</body>
+</html>

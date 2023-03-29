@@ -30,5 +30,9 @@ urlpatterns = [
 ]
 urlpatterns += [
     url(r'widget/', widget),
+    url(r'cookies/', cookies),
+    url(r'cookies_template/', cookies_template),
+    url(r'cookies_redirect/', cookies_redirect),
+    url(r'cookies_login/', cookies_login),
 ]
 
